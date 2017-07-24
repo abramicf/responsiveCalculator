@@ -1,37 +1,39 @@
 
-runCalculation = (str) => {
-  let separators = ['\\\+', '-'];
-  let tokens = str.split(new RegExp(separators.join('|'), 'g'));
-  let addSub = [];
-  let totals = [];
-  let result;
+runCalculation = function(str) {
+  var separators = ['\\\+', '-'];
+  var tokens = str.split(new RegExp(separators.join('|'), 'g'));
+  var addSub = [];
+  var totals = [];
+  var result;
+  var chars = str.split('');
 
-  for (let char of str) {
-    if (char === '+' || char === '-') {
-      addSub.push(char);
+  for (var i = 0; i < chars.length; i++) {
+    if (chars[i] === '+' || chars[i] === '-') {
+      addSub.push(chars[i]);
     }
   }
 
-  for (let i = 0; i < tokens.length; i++) {
-    let multDiv = [];
-    for (let char of tokens[i]) {
-      if (char === '*' || char === '/') {
-        multDiv.push(char);
+  for (var i = 0; i < tokens.length; i++) {
+    var multDiv = [];
+    var tokenChars = tokens[i].split('');
+    for (var k = 0; k < tokenChars.length; k++) {
+      if (tokenChars[k] === '*' || tokenChars[k] === '/') {
+        multDiv.push(tokenChars[k]);
       }
     }
-    let multDivSep = ['\\*', '/'];
-    let numbers = tokens[i].split(new RegExp(multDivSep.join('|'), 'g'));
+    var multDivSep = ['\\*', '/'];
+    var numbers = tokens[i].split(new RegExp(multDivSep.join('|'), 'g'));
 
-    let runningTotal = parseInt(numbers[0]);
+    var runningTotal = parseInt(numbers[0]);
 
-    for (let j = 1; j < numbers.length; j++) {
+    for (var j = 1; j < numbers.length; j++) {
       multDiv[j - 1] === '*' ? runningTotal *= parseInt(numbers[j]) : runningTotal /= parseInt(numbers[j]);
     }
     totals.push(runningTotal);
   }
 
   result = totals[0];
-  for (let i = 1; i < totals.length; i++) {
+  for (var i = 1; i < totals.length; i++) {
     addSub[i - 1] === '+' ? result += totals[i] : result -= totals[i];
   }
   return result;
@@ -40,23 +42,23 @@ runCalculation = (str) => {
 //works for single int
 
 // runCalculation = (str) => {
-//   let separators = ['\\\+', '-'];
-//   let tokens = str.split(new RegExp(separators.join('|'), 'g'));
-//   let addSub = [];
-//   let totals = [];
-//   let result;
+//   var separators = ['\\\+', '-'];
+//   var tokens = str.split(new RegExp(separators.join('|'), 'g'));
+//   var addSub = [];
+//   var totals = [];
+//   var result;
 
-//   for (let char of str) {
+//   for (var char of str) {
 //     if (char === '+' || char === '-') {
 //       addSub.push(char);
 //     }
 //   }
 
-//   for (let i = 0; i < tokens.length; i++) {
-//     let item = tokens[i].split('');
+//   for (var i = 0; i < tokens.length; i++) {
+//     var item = tokens[i].split('');
 //     console.log(item);
-//     let runningTotal = parseInt(item[0]);
-//     for (let j = 1; j < item.length; j += 2) {
+//     var runningTotal = parseInt(item[0]);
+//     for (var j = 1; j < item.length; j += 2) {
 //       item[j] === '*' ? runningTotal *= parseInt(item[j + 1]) : runningTotal /= parseInt(item[j + 1]);
 //     }
 //     totals.push(runningTotal);
@@ -66,7 +68,7 @@ runCalculation = (str) => {
 //   console.log(totals);
 //   console.log(addSub);
 //   result = totals[0];
-//   for (let i = 1; i < totals.length; i++) {
+//   for (var i = 1; i < totals.length; i++) {
 //     addSub[i - 1] === '+' ? result += totals[i] : result -= totals[i];
 //   }
 //   return result;
