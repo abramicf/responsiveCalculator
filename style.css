@@ -1,3 +1,59 @@
-div {
-  color: blue;
+.container {
+  height: 100vh;
+  background-color: red;
 }
+
+.h1 {
+  height: 10%;
+}
+
+.l-wrap {
+  height:90%;
+}
+
+.three-col-grid {
+  height: 15%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background color: white;
+}
+
+.grid-item {
+  width: calc((100% - 20px * 3) / 3);
+  height: 100%;
+  margin-right: 10px;
+  margin-left: 10px;
+/*  padding: 10px;
+  color: blue;
+  font-size: 30;*/
+  float: left;
+  background-color: blue;
+}
+
+.three-col-grid:after {
+  display: table;
+  clear: both;
+  content: '';
+}
+
+/*https://zellwk.com/blog/responsive-grid-system/*/
+
+/*html {
+  box-sizing: border-box;
+}
+*/
+/*.l-wrap {
+  max-width: 1140px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.three-col-grid .grid-item {
+  width: 380px;
+  float: left;
+}*/
+/**,
+*:before,
+*:after {
+  box-sizing: inherit;
+}*/
