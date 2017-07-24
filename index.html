@@ -11,6 +11,8 @@
       </h1>
 
       <div class="l-wrap" ng-controller="calcController">
+        <div class="three-col-grid answer-box" ng-show="showValue">Error!  Please enter a number
+        </div>
         <div class="three-col-grid">
           <div class="grid-item" ng-click=addToStorage(1)>1</div>
           <div class="grid-item" ng-click=addToStorage(2)>2</div>
@@ -35,6 +37,11 @@
           <div class="grid-item" ng-click=addToStorage('*')>*</div>
           <div class="grid-item" ng-click=addToStorage('/')>/</div>
           <div class="grid-item" ng-click=calculate(storage)>=</div>
+        </div>
+        <div class="three-col-grid answer-box">{{ answer }}
+        </div>
+        <div class="three-col-grid answer-box" ng-click=resetAnswer()>
+        Clear
         </div>
       </div>
     </div>

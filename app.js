@@ -1,10 +1,20 @@
 angular.module('calculator', []).controller('calcController', ($scope) => {
 
   $scope.storage = [];
+  $scope.answer;
+  $scope.showValue = false;
+
   $scope.addToStorage = function(numOrOperator) {
-    $scope.storage.push(numOrOperator);
+    console.log('Im being accessed!');
+    var lastValue = $scope.storage[$scope.storage.length - 1];
+    var twoStrings = typeof numOrOperator === 'string' && typeof lastValue === 'string';
+    if (twoStrings) {
+      $scope.showValue = true;
+    } else {
+      $scope.storage.push(numOrOperator);
+      $scope.showValue = false;
+    }
     console.log($scope.storage);
-    console.log('Hello World!');
   };
 
   $scope.runCalculation = function(str) {
@@ -44,8 +54,9 @@ angular.module('calculator', []).controller('calcController', ($scope) => {
     for (var i = 1; i < totals.length; i++) {
       addSub[i - 1] === '+' ? result += totals[i] : result -= totals[i];
     }
-    console.log(result);
-    return result;
+    $scope.answer = result;
+    console.log($scope.answer);
+    console.log($scope.showValue);
   };
 
   $scope.calculate = function(arr) {
@@ -55,6 +66,12 @@ angular.module('calculator', []).controller('calcController', ($scope) => {
     $scope.storage = [];
   };
 
-
+  $scope.resetAnswer = function() {
+    $scope.storage = [];
+    delete $scope.answer;
+    $scope.answer;
+    console.log($scope.storage);
+    console.log($scope.answer);
+  };
 });
 
