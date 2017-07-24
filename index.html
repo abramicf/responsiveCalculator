@@ -5,46 +5,46 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body ng-app='calculator'>
-    <div class='container'>
-      <h1>
-      Responsive Calculator
-      </h1>
+<!--     <div class='container'> -->
+    <h1 align="center">
+    Responsive Calculator
+    </h1>
 
-      <div class="l-wrap" ng-controller="calcController">
-        <div class="three-col-grid answer-box" ng-show="showValue">Error!  Please enter a number
-        </div>
+    <div class="l-wrap" align="center" ng-controller="calcController">
+      <div class="three-col-grid answer-box" ng-show="showValue">Error!  Please enter a number
+      </div>
+      <div class="three-col-grid">
+        <div class="grid-item" ng-click=addToStorage(1)>1</div>
+        <div class="grid-item" ng-click=addToStorage(2)>2</div>
+        <div class="grid-item" ng-click=addToStorage(3)>3</div>
+      </div>
+      <div class="three-col-grid">
+        <div class="grid-item" ng-click=addToStorage(4)>4</div>
+        <div class="grid-item" ng-click=addToStorage(5)>5</div>
+        <div class="grid-item" ng-click=addToStorage(6)>6</div>
+      </div>
+      <div class="three-col-grid">
+        <div class="grid-item" ng-click=addToStorage(7)>7</div>
+        <div class="grid-item" ng-click=addToStorage(8)>8</div>
+        <div class="grid-item" ng-click=addToStorage(9)>9</div>
+      </div>
+      <div class="three-col-grid">
+        <div class="grid-item" ng-click=addToStorage(0)>0</div>
+        <div class="grid-item" ng-click=addToStorage('+')>+</div>
+        <div class="grid-item" ng-click=addToStorage('-')>-</div>
+      </div>
         <div class="three-col-grid">
-          <div class="grid-item" ng-click=addToStorage(1)>1</div>
-          <div class="grid-item" ng-click=addToStorage(2)>2</div>
-          <div class="grid-item" ng-click=addToStorage(3)>3</div>
-        </div>
-        <div class="three-col-grid">
-          <div class="grid-item" ng-click=addToStorage(4)>4</div>
-          <div class="grid-item" ng-click=addToStorage(5)>5</div>
-          <div class="grid-item" ng-click=addToStorage(6)>6</div>
-        </div>
-        <div class="three-col-grid">
-          <div class="grid-item" ng-click=addToStorage(7)>7</div>
-          <div class="grid-item" ng-click=addToStorage(8)>8</div>
-          <div class="grid-item" ng-click=addToStorage(9)>9</div>
-        </div>
-        <div class="three-col-grid">
-          <div class="grid-item" ng-click=addToStorage(0)>0</div>
-          <div class="grid-item" ng-click=addToStorage('+')>+</div>
-          <div class="grid-item" ng-click=addToStorage('-')>-</div>
-        </div>
-          <div class="three-col-grid">
-          <div class="grid-item" ng-click=addToStorage('*')>*</div>
-          <div class="grid-item" ng-click=addToStorage('/')>/</div>
-          <div class="grid-item" ng-click=calculate(storage)>=</div>
-        </div>
-        <div class="three-col-grid answer-box">{{ answer }}
-        </div>
-        <div class="three-col-grid answer-box" ng-click=resetAnswer()>
-        Clear
-        </div>
+        <div class="grid-item" ng-click=addToStorage('*')>*</div>
+        <div class="grid-item" ng-click=addToStorage('/')>/</div>
+        <div class="grid-item" ng-click=calculate(storage)>=</div>
+      </div>
+      <div class="three-col-grid answer-box">{{ answer }}
+      </div>
+      <div class="three-col-grid answer-box" ng-click=resetAnswer()>
+      Clear
       </div>
     </div>
+<!--     </div> -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
     <script src='app.js'></script>
   </body>
